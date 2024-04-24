@@ -1,12 +1,10 @@
 from setuptools import find_packages, setup
 
-#!/usr/bin/env python
-
 import pathlib
 
 import pkg_resources
 
-
+install_requires = []
 with pathlib.Path("requirements.txt").open() as requirements_txt:
     install_requires = [
         str(requirement)
