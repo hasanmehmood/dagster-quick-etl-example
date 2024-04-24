@@ -1,3 +1,4 @@
+import os
 from dagster import (
     Definitions,
     ScheduleDefinition,
@@ -23,7 +24,8 @@ def my_op():
 
 @op(ins={"start": In(Nothing)})
 def my_second_op():
-    print("This is my second job")
+    # print env variable named HELLO
+    print("My second job printing an environment variable: ", os.environ["HELLO"])
 
 
 @job
