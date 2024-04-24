@@ -9,11 +9,16 @@ from dagster import (
     Nothing,
     In,
 )
-
+import pandas as pd
 
 @op
 def my_op():
-    print("This is my real job")
+    # create a pandas dataframe
+    df = pd.DataFrame({"a": [1, 2, 3], "b": [4, 5, 6]})
+    # print the dataframe
+    print(df)
+
+    print("My first job printing a dataframe!")
 
 
 @op(ins={"start": In(Nothing)})
